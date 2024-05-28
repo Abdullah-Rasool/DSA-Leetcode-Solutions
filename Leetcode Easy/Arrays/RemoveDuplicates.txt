@@ -1,0 +1,35 @@
+                                        
+                                      PROBLEM STATEMENT:
+                                      =================
+
+The problem is to remove duplicates from a sorted array in-place such that each element appears 
+only once and return the new length of the array. The relative order of the elements should be kept the same, 
+and the extra space usage should be constant (i.e., O(1) space complexity).
+
+
+
+
+                                      SOLUTION APPROACH USING LEETCODE SYNTAX:
+                                      ========================================
+
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) 
+    {
+        int j = 1;  // This variable will track the position of the next unique element.
+        int n = nums.size();  // Store the size of the input array.
+
+        for(int i = 1; i < n; i++)
+        {
+            // If the current element is different from the previous one,
+            // it means it's a unique element in the context of the array.
+            if(nums[i] != nums[i-1])
+            {
+                nums[j] = nums[i];  // Place the unique element at the position tracked by `j`.
+                j++;  // Increment `j` to the next position.
+            }
+        }
+        return j;  // `j` now holds the count of unique elements.
+    }
+};
