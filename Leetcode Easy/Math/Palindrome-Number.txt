@@ -1,0 +1,38 @@
+
+                                      PROBLEM STATEMENT:
+                                      =================
+
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+Example 1:
+
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+
+                                      
+                                      SOLUTION APPROACH USING LEETCODE SYNTAX:
+                                      ========================================     
+
+class Solution {
+public:
+    bool isPalindrome(int x)
+     {
+       int original=x;
+       long long reverse=0;
+       while(x>0)
+       {
+         int lastdigit=x%10;
+         reverse = reverse*10 + lastdigit;
+         x/=10;
+       }
+         if(reverse==original)
+         {
+           return true;
+         }
+         else
+         {
+           return false;
+         }
+    }
+};
